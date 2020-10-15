@@ -162,6 +162,7 @@ public class SwiftFlutterNordicDfuPlugin: NSObject, FlutterPlugin, DFUServiceDel
     
     //MARK: - LoggerDelegate
     public func logWith(_ level: LogLevel, message: String) {
-        //print("\(level.name()): \(message)")
+        print("\(level.name()): \(message)")
+        channel.invokeMethod("logs", arguments: "\(level.name()): \(message)")
     }
 }
